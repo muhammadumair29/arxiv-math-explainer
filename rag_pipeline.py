@@ -1,7 +1,8 @@
 import os
 from typing import List
 from langchain_core.documents import Document
-from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -21,10 +22,7 @@ class RAGPipeline:
             
         # Initialize Embeddings and LLM
         # Using Gemini 1.5 Flash or Pro depending on your deployment preference
-        self.embeddings = GoogleGenerativeAIEmbeddings(
-            model="models/text-embedding-004", 
-            google_api_key=self.api_key
-        )
+        self.embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
         self.llm = ChatGoogleGenerativeAI(
             model="gemini-1.5-flash",
             google_api_key=self.api_key,
