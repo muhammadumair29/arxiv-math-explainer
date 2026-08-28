@@ -5,3 +5,4 @@ langchain-google-genai==1.0.8
 chromadb==0.5.5
 PyMuPDF==1.28.2
 python-dotenv==1.0.1
+sentence-transformers==3.0.1
