@@ -22,7 +22,7 @@ class RAGPipeline:
         # Initialize Embeddings and LLM
         # Using Gemini 1.5 Flash or Pro depending on your deployment preference
         self.embeddings = GoogleGenerativeAIEmbeddings(
-            model="models/embedding-001", 
+            model="models/text-embedding-004", 
             google_api_key=self.api_key
         )
         self.llm = ChatGoogleGenerativeAI(
